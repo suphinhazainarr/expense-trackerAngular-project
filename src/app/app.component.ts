@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';  // Import RouterModule
+import { SidebarComponent } from './sidebar/sidebar.component';  // Import SidebarComponent
+import { routes } from './app.routes';  // Import your routing configuration
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,  // Mark it as a standalone component
+  imports: [RouterModule, SidebarComponent],  // RouterModule is used for routing
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'expense-tracker';

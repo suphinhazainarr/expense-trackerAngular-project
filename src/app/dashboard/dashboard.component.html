@@ -1,0 +1,21 @@
+<div class="dashboard">
+  <div class="charts">
+    <!-- Bar Chart Section -->
+    <div class="chart">
+      <h3>Expenses by Month (Bar Chart)</h3>
+      <ag-charts
+        style="height: 400px; width: 100%;"
+        [options]="barChartOptions"
+      ></ag-charts>
+    </div>
+
+    <!-- Pie Chart Section -->
+    <div class="chart">
+      <h3>Portfolio Composition (Pie Chart)</h3>
+      <ag-charts
+        style="height: 400px; width: 100%;"
+        [options]="pieChartOptions"
+      ></ag-charts>
+    </div>
+  </div>
+</div>

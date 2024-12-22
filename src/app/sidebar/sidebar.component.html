@@ -1,0 +1,21 @@
+<!-- Menu Icon -->
+<div class="menu-icon" id="menuIcon" (click)="toggleSidebar()">
+  <span>&#9776;</span>
+</div>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="profile">
+    <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
+    <h3>Janice Chandler</h3>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Expenses</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Support</a></li>
+      <li class="add-expense"><a  routerLink="/add-expense" routerLinkActive="active">+ Add Expense</a></li>
+    </ul>
+  </nav>
+</aside>
