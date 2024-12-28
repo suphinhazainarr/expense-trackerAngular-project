@@ -1,0 +1,23 @@
+<div class="expense-management">
+    <h2>Expense History</h2>
+  
+    <div class="filters">
+      <button (click)="sortBy('date')">Sort by Date</button>
+      <button (click)="sortBy('category')">Sort by Category</button>
+      <button (click)="sortBy('amount')">Sort by Amount</button>
+    </div>
+  
+    <div *ngIf="expenses.length > 0; else noExpenses">
+      <div class="expense-item" *ngFor="let expense of expenses">
+        <div class="expense-date">{{ expense.date | date: 'shortDate' }}</div>
+        <div class="expense-category">{{ expense.category }}</div>
+        <div class="expense-name">{{ expense.name }}</div>
+        <div class="expense-amount">${{ expense.amount | number: '1.2-2' }}</div>
+      </div>
+    </div>
+  
+    <ng-template #noExpenses>
+      <p class="no-expenses-message">No expenses to display. Add your first expense to get started!</p>
+    </ng-template>
+  </div>
+  

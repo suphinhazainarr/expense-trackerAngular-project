@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -12,18 +12,20 @@ import { AgChartsModule } from 'ag-charts-angular';
 
 // Import routes from app.routes.ts
 import { routes } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    // DashboardComponent,
     AddExpenseComponent,
     ProfileComponent, // Declare the ProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes), // Use routes from app.routes.ts
-    AgChartsModule, // Import AgChartsModule
+    AgChartsModule,
+    HttpClientModule // Import AgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,16 +1,69 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html, body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  height: 100%; /* Set height to full viewport */
+  background-color: green; /* Apply green color */
+  color: white; /* Optional: Set default text color to white for contrast */
+  border: 0; /* Remove any potential border */
+
 }
 
-html, body {
-  height: 100%;
-  font-family: 'Poppins', sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .container {
   display: flex;
-  height: 100vh;
+  height: 100%; /* Full height of the viewport */
+  width: 100%;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack content on smaller screens */
+  }
 }
 
+
+.menu-icon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+app-sidebar {
+  width: 250px; /* Sidebar width */
+  height: 100%; /* Full height */
+  background-color: #1e1e2f;
+  position: fixed; /* Make it fixed on the left */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.content {
+  height: 100%;
+  min-height: 100vh;
+  flex: 1;
+  margin-left: 250px; /* Match the sidebar width */
+  padding: 1rem;
+  background-color: rgb(41, 47, 61);
+  color: white;
+
+  @media (max-width: 768px) {
+    margin-left: 0; /* Adjust when sidebar is hidden */
+  }
+}

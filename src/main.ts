@@ -1,9 +1,15 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
-
 import { provideRouter } from '@angular/router';
-import { routes } from './app/app.routes'
+import { provideHttpClient, withInterceptors } from '@angular/common/http'; // Import HttpClient
+import { routes } from './app/app.routes';
+import { AppComponent } from './app/app.component';
+import { AuthInterceptor } from './app/auth.interceptor'; // Import the function-based interceptor
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
-}).catch(err => console.error(err));
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(
+      withInterceptors([AuthInterceptor]) // Use the function-based interceptor
+    )
+  ]
+}).catch((err) => console.error(err));

@@ -1,26 +1,53 @@
-/* Dashboard Container */
+html, body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  height: 100%; /* Full viewport height */
+  background-color: green; 
+  position: relative; /* Ensure parents can expand */
+
+}
+
+body {
+  background-color: green; 
+}
+
+html,
+body,
+.container,
+.content {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 .dashboard {
-  margin-left: 250px; /* Reserve space for the sidebar */
+  margin-left: 150px; /* Align with sidebar width */
   padding: 2rem;
-  background-color: #121212;
+  height: 100%;
+  background-color: rgb(41, 47, 61);
   color: #ffffff;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-height: 100vh; /* Ensures full viewport height */
+
+  @media (max-width: 768px) {
+    margin-left: 0; /* Remove margin when sidebar collapses */
+    padding: 1rem;
+  }
 }
 
-/* Charts Section */
 .charts {
   display: flex;
-  flex-wrap: wrap; /* Allow charts to wrap on smaller screens */
+  flex-wrap: wrap;
   gap: 2rem;
   justify-content: space-between;
+  background-color: rgb(41, 47, 61);
 }
 
-/* Individual Chart Card */
 .chart {
-  flex: 1 1 calc(50% - 2rem); /* Take 50% of the width, accounting for gap */
+  flex: 1 1 calc(50% - 2rem);
   min-height: 350px;
   background-color: #1e1e2f;
   padding: 1rem;
@@ -32,35 +59,64 @@
   align-items: center;
 }
 
-/* Headings for Charts */
 .chart h3 {
   color: #6a5acd;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
-  .dashboard {
-    margin-left: 200px; /* Adjust margin for smaller sidebar */
-    padding: 1rem;
-  }
-
   .charts {
     gap: 1rem;
   }
 
   .chart {
-    flex: 1 1 100%; /* Make each chart full-width */
+    flex: 1 1 100%; /* Full width for smaller screens */
   }
 }
 
 @media (max-width: 768px) {
-  .dashboard {
-    margin-left: 0; /* Sidebar will collapse or disappear */
-  }
-
   .charts {
     gap: 1rem;
   }
+}
+
+
+
+
+h2 {
+  font-size: 2rem; /* Large font size */
+  font-weight: 600; /* Semi-bold for emphasis */
+  color: white; /* White text color */
+  text-align: center; /* Center align the heading */
+  margin: 20px 0; /* Add margin for spacing */
+  padding: 10px 20px; /* Padding for a balanced look */
+  font-family: 'Poppins', sans-serif; /* Standard, clean font family */
+  text-transform: uppercase; /* Uppercase letters for emphasis */
+  letter-spacing: 1px; /* Slightly spaced letters for a clean look */
+  position: relative; /* Required for the pseudo-element */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Pseudo-element for the underline effect */
+h2::after {
+  content: ''; /* Create an empty element */
+  position: absolute; /* Position it relative to the heading */
+  bottom: 0; /* Place it at the bottom of the heading */
+  left: 50%; /* Start from the center */
+  width: 0; /* Start with no width */
+  height: 2px; /* Thickness of the underline */
+  background-color: #E0E0E0; /* Green color for the underline */
+  transform: translateX(-50%); /* Center the underline */
+  transition: width 0.4s ease, transform 0.4s ease; /* Smooth transition for width and position */
+}
+
+/* Hover effect */
+h2:hover {
+  color: #E0E0E0; /* Change text color to green on hover */
+}
+
+/* On hover, expand the underline from the center */
+h2:hover::after {
+  width: 50%; /* Expand underline to full width */
 }

@@ -1,22 +1,7 @@
-<!-- <nav class="navbar">
-  <div class="container">
-    <h1>Expense Tracker</h1>
-    <ul>
-      <li><a routerLink="/dashboard">Dashboard</a></li>
-      <li><a routerLink="/add-expense">Add Expense</a></li>
-      <li><a routerLink="/profile">Profile</a></li>
-    </ul>
-  </div>
-</nav> -->
-<!-- <ag-charts
-    style="height: 100%"
-    [options]="chartOptions">
-   </ag-charts> -->
-
-<!-- <router-outlet></router-outlet> -->
 <div class="container">
-  <app-sidebar></app-sidebar> <!-- Sidebar Component -->
-  <router-outlet></router-outlet>
-  <!-- <app-dashboard></app-dashboard> -->
-   <!-- Dashboard Component -->
+  <button class="menu-icon" (click)="toggleSidebar()">☰</button>
+  <app-sidebar *ngIf="!sidebarHidden" [isHidden]="sidebarHidden"></app-sidebar>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
