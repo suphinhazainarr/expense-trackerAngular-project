@@ -1,57 +1,79 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://www.pexels.com/photo/a-person-holding-black-desk-calculator-5466809/') no-repeat center center fixed;
+  background-size: cover;
+}
+
 .login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-  }
-  
-  small {
-    color: red;
-    font-size: 12px;
-  }
-  
-  p {
-    color: green;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
+  max-width: 400px;
+  margin: 50px auto;
+margin-left: 270px;
+  padding: 20px;
+  /* border: 1px solid #ddd; */
+  border-radius: 8px;
+  background-color: 1e1e2f; /* Semi-transparent background for better contrast */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+small {
+  color: red;
+  font-size: 12px;
+}
+
+p {
+  color: green;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+

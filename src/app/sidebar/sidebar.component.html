@@ -1,15 +1,22 @@
 <aside class="sidebar" [class.hidden]="isHidden">
   <div class="profile">
-    <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
-    <h3>Janice Chandler</h3>
+    <div
+      class="profile-img"
+      [style.backgroundColor]="avatarColor"
+      *ngIf="!isHidden"
+    >
+      {{ initials }}
+    </div>
+    <h3 *ngIf="!isHidden">{{ username }}</h3>
   </div>
+  
   <nav>
     <ul>
-      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/dashboard" routerLinkActive="active">Home</a></li>
       <li><a routerLink="/expense-history" routerLinkActive="active">Expenses Management</a></li>
-      <li><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
+      <li><a routerLink="/profile" routerLinkActive="active">Profile Settings</a></li>
       <li>
-        <a routerLink="/login" routerLinkActive="active">Support</a>
+        <a routerLink="/dashboard" routerLinkActive="active">Support</a>
       </li>
       <li class="add-expense">
         <a routerLink="/add-expense" routerLinkActive="active">+ Add Expense</a>

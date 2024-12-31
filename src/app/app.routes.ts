@@ -14,10 +14,12 @@ export const routes: Routes = [
     path: 'signup', 
     loadComponent: () => import('./signup/signup.component').then(m => m.SignupComponent) 
   },
-  { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard] },
-  { path: 'add-expense', component: AddExpenseComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'expense-history', component: ExpenseManagementComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'add-expense', component: AddExpenseComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  
+  { path: 'expense-history', component: ExpenseManagementComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/login' },
 ];
+
  

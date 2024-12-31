@@ -10,20 +10,25 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     const token = localStorage.getItem('authToken');
-
+    console.log('Token:', token);
+  
     if (!token) {
-      this.router.navigate(['/login']); 
+      console.warn('No token found. Redirecting to login.');
+      this.router.navigate(['/login']);
       return false;
     }
-
+  
     if (this.isTokenExpired(token)) {
-      this.router.navigate(['/login']); 
-      localStorage.removeItem('token'); // Clear expired token
+      console.warn('Token expired. Redirecting to login.');
+      this.router.navigate(['/login']);
+      localStorage.removeItem('authToken'); // Clear expired token
       return false;
     }
-
+  
+    console.log('Token valid. Proceeding.');
     return true;
   }
+  
 
   private isTokenExpired(token: string): boolean {
     try {

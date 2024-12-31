@@ -18,7 +18,7 @@
     transform: translateX(-100%);
   }
 
-  .profile {
+  /* .profile {
     text-align: center;
     margin-bottom: 1rem;
 
@@ -30,7 +30,7 @@
       margin-bottom: 0.5rem;
       border: 2px solid #42d392;
     }
-  }
+  } */
 
   nav ul {
     list-style: none;
@@ -81,3 +81,30 @@
     padding: 0.4rem;
   }
 }
+.profile {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 5px; /* Add spacing between image and username */
+}
+
+.profile-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: rgb(41, 47, 61); /* or use the random color generation logic */
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+}
+

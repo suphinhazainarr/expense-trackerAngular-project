@@ -23,7 +23,8 @@ export class AuthService {
       // Store the token in localStorage on successful login
       tap((response: any) => {
         if (response.token) {
-          localStorage.setItem('authToken', response.token); // Store the JWT token
+          localStorage.setItem('authToken', response.token);
+          localStorage.setItem('username', user.username); // Store the username
         }
       })
     );

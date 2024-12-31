@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ExpenseService } from '../expense.service';
 
 interface Expense {
   name: string;
@@ -16,15 +17,28 @@ interface Expense {
   styleUrl: './expense-management.component.css'
 })
 export class ExpenseManagementComponent {
-  expenses: Expense[] = [
-    { name: 'Groceries', amount: 50, date: '2024-12-10', category: 'Food' },
-    { name: 'Bus Ticket', amount: 10, date: '2024-12-08', category: 'Transport' },
-    { name: 'Movie Night', amount: 15, date: '2024-12-07', category: 'Entertainment' },
-    // Add more sample data or fetch from a service
-  ];
+  expenses: Expense[] = [];
+  loggedInUsername: string = '';
+  constructor(private expenseService: ExpenseService) {}
 
-  ngOnInit() {
-    this.sortBy('date'); // Default sorting
+  ngOnInit(): void {
+    
+    this.fetchExpenses();
+  }
+
+  fetchExpenses(): void {
+    this.loggedInUsername = localStorage.getItem('username') || '' ; 
+    console.log('Fetching expenses for username:', this.loggedInUsername);
+
+    this.expenseService.getExpensesByUsername(this.loggedInUsername).subscribe(
+      (data) => {
+        this.expenses = data;
+        this.sortBy('date'); // Default sorting
+      },
+      (error) => {
+        console.error('Error fetching expenses:', error);
+      }
+    );
   }
 
   sortBy(criteria: string): void {

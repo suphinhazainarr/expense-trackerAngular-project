@@ -31,6 +31,7 @@ body,
   flex-direction: column;
   gap: 2rem;
   min-height: 100vh; /* Ensures full viewport height */
+  transition: margin-left 0.3s ease; /* Smooth transition for sidebar adjustments */
 
   @media (max-width: 768px) {
     margin-left: 0; /* Remove margin when sidebar collapses */
@@ -38,19 +39,13 @@ body,
   }
 }
 
-.charts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-  background-color: rgb(41, 47, 61);
-}
-
 .chart {
-  flex: 1 1 calc(50% - 2rem);
-  min-height: 350px;
+  flex: 1 1 calc(50% - 2rem); /* Maintain two charts side by side */
+  max-width: 78%; /* Prevent charts from becoming too wide */
+  min-height: 400px; /* Slightly taller for better readability */
+  height: auto; /* Let the height adjust dynamically */
   background-color: #1e1e2f;
-  padding: 1rem;
+  padding: 1.5rem; /* Slightly larger padding for better spacing */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -59,6 +54,15 @@ body,
   align-items: center;
 }
 
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start; /* Align charts to the top */
+}
+
+
 .chart h3 {
   color: #6a5acd;
   margin-bottom: 1rem;
@@ -66,22 +70,23 @@ body,
 }
 
 @media (max-width: 1024px) {
-  .charts {
-    gap: 1rem;
-  }
-
   .chart {
-    flex: 1 1 100%; /* Full width for smaller screens */
+    flex: 1 1 100%; /* Full width for single-column layout */
+    max-width: 100%; /* Ensure it fits the container */
+    min-height: 300px; /* Reduce height for smaller screens */
   }
 }
 
 @media (max-width: 768px) {
   .charts {
-    gap: 1rem;
+    gap: 1rem; /* Reduce spacing between charts */
+  }
+
+  .chart {
+    min-height: 250px; /* Further reduce height */
+    padding: 1rem; /* Compact padding */
   }
 }
-
-
 
 
 h2 {
@@ -119,4 +124,29 @@ h2:hover {
 /* On hover, expand the underline from the center */
 h2:hover::after {
   width: 50%; /* Expand underline to full width */
+}
+
+.navigation {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.navigation button {
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: rgb(41, 47, 61);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navigation button:hover {
+  background-color: rgb(93, 107, 140);
+}
+
+.navigation span {
+  display: inline-block;
+  margin: 0 10px;
+  font-weight: bold;
 }

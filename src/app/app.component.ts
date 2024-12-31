@@ -25,6 +25,17 @@ export class AppComponent {
         this.sidebarHidden = this.router.url === '/login' || this.router.url === '/signup';
       }
     });
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        document.body.className = ''; // Clear existing classes
+        if (event.url === '/login') {
+          document.body.classList.add('login-page');
+        } else {
+          document.body.classList.add('main-page');
+        }
+      }
+    });
   }
 
   toggleSidebar() {

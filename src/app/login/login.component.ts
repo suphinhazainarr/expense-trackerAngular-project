@@ -28,7 +28,7 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe({
         next: (res: any) => {
           this.message = 'Login successful!';
-          this.setLogoutTimer(60 * 1000); // Set auto-logout timer for 1 hour
+          this.setLogoutTimer(60 *60 * 1000); // Set auto-logout timer for 1 hour
           this.router.navigate(['/dashboard']);
         },
         error: (err: { error: { error: string } }) => {

@@ -1,1 +1,17 @@
-<p>profile works!</p>
+<div class="profile">
+    <div class="profile-img" [style.background-color]="getRandomColor()">
+      <span>{{ getInitials(profile.name) }}</span>
+    </div>
+    <p class="profileusername">{{ profile.username }}</p>
+    
+    <form (ngSubmit)="updateProfile()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="name" name="name" required />
+      
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required />
+      
+      <button type="submit">Update Profile</button>
+    </form>
+  </div>
+  

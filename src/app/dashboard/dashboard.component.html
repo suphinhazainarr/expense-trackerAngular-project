@@ -1,22 +1,42 @@
 <div class="dashboard">
   <h2 class="heading">Expense Overview</h2>
+  
   <div class="charts">
+
     <!-- Bar Chart Section -->
     <div class="chart">
+      <div class="navigation">
+        <button (click)="showPreviousYear()">Previous Year</button>
+        <button (click)="showNextYear()">Next Year</button>
+        <span>Selected Year: {{ selectedYear }}</span>
+       
+      </div>
       <h3>Expenses by Month (Bar Chart)</h3>
-      <ag-charts
-        style="height: 400px; width: 100%;"
-        [options]="barChartOptions"
-      ></ag-charts>
+      <div style="height: 400px; width: 100%">
+        <canvas baseChart
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [type]="'bar'">
+        </canvas>
+      </div>
     </div>
 
     <!-- Pie Chart Section -->
     <div class="chart">
+      <div class="navigation">
+      
+        <button (click)="showPreviousMonth()">Previous Month</button>
+        <button (click)="showNextMonth()">Next Month</button>
+        <span>Selected Month: {{ selectedMonth }}</span>
+      </div>
       <h3>Portfolio Composition (Pie Chart)</h3>
-      <ag-charts
-        style="height: 400px; width: 100%;"
-        [options]="pieChartOptions"
-      ></ag-charts>
+      <div style="height: 700px; width: 80% ; ">
+        <canvas baseChart
+                [data]="pieChartData"
+                [options]="pieChartOptions"
+                [type]="'pie'">
+        </canvas>
+      </div>
     </div>
   </div>
 </div>

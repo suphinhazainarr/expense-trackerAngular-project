@@ -13,13 +13,16 @@ import { AgChartsModule } from 'ag-charts-angular';
 // Import routes from app.routes.ts
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NgChartsModule } from 'ng2-charts';  // Import NgChartsModule
 
 @NgModule({
   declarations: [
     AppComponent,
-    // DashboardComponent,
+    DashboardComponent,
     AddExpenseComponent,
-    ProfileComponent, // Declare the ProfileComponent
+    ProfileComponent,
+    NgChartsModule // Declare the ProfileComponent
   ],
   imports: [
     BrowserModule,
