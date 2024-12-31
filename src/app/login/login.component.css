@@ -8,11 +8,12 @@ body {
 .login-container {
   max-width: 400px;
   margin: 50px auto;
-margin-left: 270px;
+  margin-left: 270px;
   padding: 20px;
-  /* border: 1px solid #ddd; */
   border-radius: 8px;
-  background-color: 1e1e2f; /* Semi-transparent background for better contrast */
+  background-color: rgb(41, 47, 61);
+  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.1);
+
 }
 
 h2 {
@@ -30,20 +31,19 @@ label {
   margin-bottom: 5px;
 }
 
-input {
+input, button {
   width: 100%;
-  padding: 8px;
+  max-width: 100%;
+  padding: 10px; /* Uniform padding for inputs and button */
+  box-sizing: border-box; /* Ensures padding is included in width calculation */
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -76,4 +76,3 @@ p {
 .signup-link a:hover {
   text-decoration: underline;
 }
-
